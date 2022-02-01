@@ -1,2 +1,10 @@
 # final_project
-Capstone Analysis
+## Capstone Analysis
+
+--
+
+## Developers
+
+- Sangeetha Anand
+- Khanh Ngo
+- Ken Paulson
