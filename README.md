@@ -3,13 +3,14 @@
 
 # Analyzing concentration of occupation based on location in USA
 
-**Overview of the analysis: **
+**Overview of the analysis:**
 
 In this final project our team has decided to analyze occupation based on demographic information, we are trying to understand if there is a trend or correlation in a certain type of occupation vs location (for example: which city or state offers more technical jobs, is technical jobs increasing in Colorado?  Or Arizona). Question we hope to answer is there a relationship between demography and Job type, which city/state offer more Technical/Data jobs.
 
 Reason we choose this topic is our curiosity to find which city or state has most tech/data jobs, now most tech jobs can be performed remotely, applying in multiple states which offers more jobs increases our probability of getting the job we desire faster.
 
-** Developers **
+**Developers**
+
 - Ken Paulson
 - Khanh Ngo
 - Sangeetha Venu Gopalan
@@ -20,16 +21,12 @@ Communication protocols: We meet via zoom twice a week on Tuesdays and Thursdays
 In our team to avoid git issues we work on our branch after every merge we delete the branch from the repository.
 
 **Week 1 deliverable:**
-**Data Source**
 
-We have downloaded employment data for May 2018 ,2019, 2020, we cleaned and combined the data into one CSV file, then used the combined dataframe to map, zip code and locations from a private database.
+Data Source : We have downloaded employment data for May 2018 ,2019, 2020, we cleaned and combined the data into one CSV file, then used the combined dataframe to map, zip code and locations from a private database.
 
 https://www.bls.gov/oes/tables.htm
 https://www.cubitplanning.com
 
-**Machine Learning **
+Machine Learning : We have created our machine learning model that will take the combined data 
 
-We have created our machine learning model that will take the combined data 
-
-**Database**
-We have set up the database that will connect to AWS with our sample data.
+Database : We have set up the database that will connect to AWS with our sample data.
