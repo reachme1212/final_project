@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 all_data_M_2018.xlsx 
+config.py
 # C extensions
 *.so
 #AWS connection string
