@@ -3,15 +3,17 @@
 
 # Analyzing concentration of occupation based on location in USA
 
-**Overview of the analysis: **
+**Overview of the analysis:**
 
 In this final project our team has decided to analyze occupation based on demographic information, we are trying to understand if there is a trend or correlation in a certain type of occupation vs location (for example: which city or state offers more technical jobs). Question we hope to answer “is there a relationship between demography and Job type”. 
 
 Reason we choose this topic is our curiosity to find which city or state has most tech/data jobs, now most tech jobs can be performed remotely, applying in multiple states which offers more jobs increases our probability of getting the job we desire faster.
+
 Overall outline of this analysis is getting employment and demographic data, Merge and clean the data, upload the final clean data to database and create a machine model and dashboard to add some interactive elements.
 
 
 **Developers**
+
 - Ken Paulson
 - Khanh Ngo
 - Sangeetha Venu Gopalan
