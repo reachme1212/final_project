@@ -27,6 +27,7 @@ Team members are assigned specific roles every week in this project, we all work
 After we cleaned and merged the two data frames (employment and demographic information), we spent some time to explore the data and to decide what we can predict from this dataset.
 
 ![data_frame](images/final_data.PNG)
+![projected_erd](images/project_ERD_DB.PNG)
 
 **Data Source:**
 
