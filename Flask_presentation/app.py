@@ -5,6 +5,7 @@ import pandas as pd
 from flask import Flask, json, jsonify
 from flask import Flask, render_template, request
 from urllib.parse import unquote
+import pickle
 
 # Create Flask application
 app = Flask(__name__)
@@ -25,6 +26,7 @@ def returnStateOptions():
     return states
 
 # Todo: link up to CSV/DB
+# Todo: SQL : SELECT DISTINCT county FROM db.table;
 def returnStateCountyOptions():
     df = pd.read_csv('static/data_files/Employment_by_County.csv', dtype=str)
     search_state = request.args.get("state").replace("'","")
@@ -49,75 +51,54 @@ def getCountyDemogrographic():
 
 
 
-@app.route("/listStateCounties", methods = ['GET', 'POST'])
+@app.route("/listStateCounties", methods = ['GET'])
 def stateCounties():
     counties = returnStateCountyOptions()
     return (counties)
 
-@app.route("/makePrediction", methods = ['GET', 'POST'])
+@app.route("/makePrediction", methods = ['POST'])
 def makePrediction():
+    feature_columns = ['race_white', 'race_black', 'race_asian', 'race_two_or_more',   'race_others']
     if request.json:
-
+        # Labor force prediction
+        filename_labor_force = './static/model/finalized_model_labor_force.sav'
+        model_labor_force = pickle.load(open(filename_labor_force, 'rb'))
         race_white = request.json.get('race_white')
         race_black = request.json.get('race_black')
         race_asian = request.json.get('race_asian')
         race_others = request.json.get('race_others')
         race_two_or_more = request.json.get('race_two_or_more')
+        prediction_labor_force = model_labor_force.predict([[race_white,race_black,race_asian,race_others,race_two_or_more]])[0]
+        prediction_labor_force_feature_importance_ = sorted(zip(model_labor_force.feature_importances_, feature_columns), reverse=True)
+        prediction_labor_force_feature_importance = json.dumps(prediction_labor_force_feature_importance_)
 
-        # use pickle to load our .sav model
-        # assign model to variable
-        # call model.predict(features_predict
-        # set prediction to prediction_value
-        prediction_value = (int(race_white) + int(race_black) + int(race_asian) + int(race_others) + int(race_two_or_more)) / 5
-        return jsonify({"prediction": prediction_value})
+        # Unemployment pct prediction
+        filename_unemployment_pct= './static/model/finalized_model_unemployment_pct.sav'
+        model_unemployment_pct = pickle.load(open(filename_unemployment_pct, 'rb'))
+        race_white = request.json.get('race_white')
+        race_black = request.json.get('race_black')
+        race_asian = request.json.get('race_asian')
+        race_others = request.json.get('race_others')
+        race_two_or_more = request.json.get('race_two_or_more')
+        prediction_unemployment_pct = model_unemployment_pct.predict([[race_white,race_black,race_asian,race_others,race_two_or_more]])[0]
+        prediction_unemployment_pct_feature_importance_ = sorted(zip(model_unemployment_pct.feature_importances_, feature_columns), reverse=True)
+        prediction_unemployment_pct_feature_importance = json.dumps(prediction_unemployment_pct_feature_importance_)
+        
+        # Return data in json format
+        prediction_labor_force = round(prediction_labor_force)
+        prediction_unemployment_pct = round(prediction_unemployment_pct, 1)
+        return jsonify({
+            "prediction_labor_force": prediction_labor_force, 
+            "prediction_labor_force_feature_importance": prediction_labor_force_feature_importance, 
+            "prediction_unemployment_pct": prediction_unemployment_pct, 
+            "prediction_unemployment_pct_feature_importance":prediction_unemployment_pct_feature_importance
+        })
 
 
 @app.route("/predict", methods = ['GET', 'POST'])
 def predict():
-    # Start collecting post data and put into array for prediction
-    #form_values = [x for x in request.form.values()]
-    #features_predict = [int(x) for x in form_values]
-    request_type = request.form.get("request_type")
-    selected_state = request.form.get("requested_state")
-    selected_county = request.form.get("requested_county")
-    value1 = request.form.get("value1")
-    value2 = request.form.get("value2")
-    value3 = request.form.get("value3")
-    value1_entered = ""
-    value2_entered = ""
-    value3_entered = ""
-    prediction_value = ""
-    state_counties = []
-
-    if request_type == "listCounties":
-        state_counties = returnStateCountyOptions()
-
-
-    #if value1 and value2 and value3:
-    if request_type == "makePrediction":
-        value1_entered = value1
-        value2_entered = value2
-        value3_entered = value3
-
-        # use pickle to load our .sav model
-        # assign model to variable
-        # call model.predict(features_predict
-        # set prediction to prediction_value
-        prediction_value = (int(value1) + int(value2) + int(value3)) / 3
-
     return render_template('predict.html', 
-        states_options = returnStateOptions(),
-        state_counties_options = state_counties,
-        value1_val = value1,
-        value2_val = value2,
-        value3_val = value3,
-        value1_entered_val = value1_entered,
-        value2_entered_val = value2_entered,
-        value3_entered_val = value3_entered,
-        prediction_value_val = prediction_value,
-        selected_state_val = selected_state,
-        selected_county_val = selected_county,
-        request_type_val = request_type)
+        states_options = returnStateOptions())
 
 if __name__ == '__main__':
     app.run()
