@@ -23,7 +23,7 @@ Team members are assigned specific roles each week in this project, we all work 
 
 **Data-exploration and analysis:** 
 
-Data exploration is the first step of data analysis used to explore and visualize data to uncover insights from the start or identify areas or patterns to dig into more. After cleaning and uploading the data in to our database, we have spent some time to explore the data , to decide whether there is any trend in the data ,what analysis will answer our question better , what story we can tell with the dataset, Using pandas and matplotlib  we analyzed the dataset, we started to see a trend the counties with most population also have more unemployment rates.Our data exploration and analysis are in the files "Employment_by_County notebook" and "Charts_from_Employment_by_County"
+Data exploration is the first step of data analysis used to explore and visualize data to uncover insights from the start or identify areas or patterns to dig into more. After cleaning and uploading the data in to our database, we have spent some time to explore the data , to decide whether there is any trend in the data ,what analysis will answer our question better , what story we can tell with the dataset, Using pandas and matplotlib we analyzed the dataset, we started to see a trend the counties with most population also have more unemployment rates.Our data exploration and analysis are in the files "Employment_by_County notebook" and "Charts_from_Employment_by_County"
 
 
 ![data_frame](images/final_data.PNG)
@@ -38,12 +38,9 @@ https://www.bls.gov/lau/#cntyaa
 
 **Machine Learning:** 
 
-We have built a random forest regressor model to predict "unemployment" or "unemployement percentage" in these counties, 
+Data preprocessing improves the data quality by cleaning, normalizing, transforming and extracting relevant feature from raw data. Our raw data came in with columns with data type objects, the machine model we have built can only take in columns with numbers, we have formatted the dataframe “features” in to integer columns, remove null/missing values.
 
-Description of preliminary data preprocessing 
-Description of preliminary feature engineering and preliminary feature selection, including their decision-making process 
-Description of how data was split into training and testing sets 
-Explanation of model choice, including limitations and benefits
+Feature engineering and preliminary feature selection: We have initially tried linear regression and we did not get great results , after our team discussion we have come up with random forest regressor model because this technique that combines predictions from multiple machine learning algorithms to make a more accurate prediction than a single model ,then we decided our features and tested how weight of each feature affected the predictions, then we split the data into training and testing 80-20, we have got the very good accuracy score.
 
 ![Regressor](images/ml_r2.PNG)
 
@@ -62,3 +59,10 @@ We are building a google slides, to create an initial dashboard , for our final 
 [Dashboard 2](https://public.tableau.com/app/profile/sangeetha.venu.gopalan/viz/Final_project_county_db/county_overview_db?publish=yes)
 [Dashboard 3](https://public.tableau.com/app/profile/sangeetha.venu.gopalan/viz/Final_project_top_unemp_db/state_county_top_unemployed_db?publish=yes)
 [Dashboard 4](https://public.tableau.com/app/profile/sangeetha.venu.gopalan/viz/Final_project_Race_map/race_pop?publish=yes)
+
+
+**Result:**
+
+**Recommendation for future analysis:**
+
+**Technologies and tools used for this analysis:**
