@@ -1,0 +1,258 @@
+<html>
+    <head>
+        <title>Final Project</title>
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <script src = "https://d3js.org/d3-request.v1.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="static/css/styles.css">
+        <script>
+            function onRequestStateCounties()
+            {
+                var requested_state = d3.select('#requested_state').node().value
+                const url = "http://127.0.0.1:5000/listStateCounties?state="+requested_state
+                fetch(url).then(function(response) {
+                    return response.json();
+                }).then(function(data) {
+                    d3.select('#selectCounty').classed("hidden", false);
+                    var tbody = d3.select("#county_options");
+                    tbody.html("")
+                    data.counties.forEach((county) => {
+                        let row = tbody.append("option");
+                        row.value = county;
+                        row.text(county);
+                    });
+                    
+                }).catch(function() {
+                    console.log("Booo");
+                });
+            }
+        
+            function onMakePrediction()
+            {
+                //var requested_state = d3.select('#requested_state').node().value;
+                const url = "http://127.0.0.1:5000/makePrediction"
+                var payload = {
+                    race_white: d3.select('#race_white').node().value,
+                    race_black: d3.select('#race_black').node().value,
+                    race_asian: d3.select('#race_asian').node().value,
+                    race_others: d3.select('#race_others').node().value,
+                    race_two_or_more: d3.select('#race_two_or_more').node().value
+                };
+
+                fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json, text/plain, */*',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+                }).then(res => res.json())
+                .then((res) => {
+                    console.log(res)
+                    d3.select('#result').classed("hidden", false);
+                    d3.select("#prediction_value_val").html(res.prediction_labor_force)
+                    d3.select("#prediction_value_unemployed_pct_val").html(res.prediction_unemployment_pct)
+                    d3.select("#prediction_value_unemployed_pct_feature_importance").html(res.prediction_unemployment_pct_feature_importance)
+                    d3.select("#prediction_labor_force_feature_importance").html(res.prediction_labor_force_feature_importance)
+                });
+            }
+        
+            function onGetCountyDemographic()
+            {
+                var requested_county = d3.select('#county_options').node().value;
+                const url = "http://127.0.0.1:5000/getCountyDemogrographic?county="+requested_county;
+                fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json, text/plain, */*',
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function(response) {
+                    return response.json();
+                }).then(function(data) {
+                    d3.select('#adjustDemographics').classed("hidden", false);
+                    console.log(data.demographic)
+                    var demographic = (JSON.parse(data.demographic))
+                    console.log('demographic', demographic)
+                    console.log(demographic['race_white'])
+                    d3.select("#race_white").property("value", demographic['race_white']);
+                    d3.select("#race_black").property("value", demographic['race_black']);
+                    d3.select("#race_asian").property("value", demographic['race_asian']);
+                    d3.select("#race_others").property("value", demographic['race_other']);
+                    d3.select("#race_two_or_more").property("value", demographic['race_two_or_more']);
+                    d3.select("#baseline_value_val").html(demographic['labor_force']);
+                    d3.select("#baseline_value_unemployed_pct_val").html(demographic['unemployed_pct']);
+                    onMakePrediction();
+                }).catch(function() {
+                    console.log("Something went wrong");
+                });
+            }
+            
+        </script>
+    </head>
+    <body>
+        <div class="container-fluid">
+        
+            <!-- MAIN HEADER -->
+            <div class="row">
+                <div class="col-md-12 sub-header">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-1">
+                                <img src="https://instructure-uploads-pdx.s3.us-west-2.amazonaws.com/account_150420000000000001/attachments/60993/arizona-square.png" height="90">
+                            </div>
+                            <div class="col-md-5">
+                                <p><small>University of Arizona : Data Analytics and Visualization Bootcamp</small><br>Analyzing concentration of occupation based on location in USA</p>
+                            </div>
+                            <div class="col-md-6">
+                                <ul>
+                                    <li><a href="/">Home</a></li>
+                                    <li><a href="/analysis">Analysis</a></li>
+                                    <li><a href="/predict" class="active">Predict</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+
+            <!-- PAGE BODY -->
+            <!-- PREDICT FORM -->
+            <div class="row">
+                <div class="col-md-12 content-container">
+                        <div class="row">
+                            <div class="col-md-8"><h1>Predict</h1></div>
+                            <div class="col-md-4"><h1>Labor Force</h1></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8"><hr></div>
+                            <div class="col-md-4"><hr></div>
+                        </div>
+                        <div class="row justify-content-center">
+
+                            
+                            <!-- SELECT LOCATION -->
+                            <div class="col-md-3 predict-col" id="step1">
+                                <h5>Select a Baseline location</h5>
+                                <input type="hidden" name="request_type" value="listCounties">
+                                <select name="requested_state" id="requested_state" class="form-control" onchange="onRequestStateCounties()">
+                                    <option value="" disabled selected>Select a State</option>
+                                    {% for state in states_options %}
+                                    <option value="{{state}}" {% if state==selected_state_val %} selected="selected" {% endif %}>{{state}}</option>
+                                    {% endfor %}
+                                </select>
+                                <br><br>
+                                <div id="selectCounty">
+                                    <h5>Select a County</h5>
+                                    <select name="requested_county" id="county_options" class="form-control" onchange="onGetCountyDemographic()">
+                                        {% for county in state_counties_options %}
+                                        <option value="{{county}}" {% if county==selected_county_val %} selected="selected" {% endif %}>{{county}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <!-- ADJUST DEMOGRAPHIC VALUES-->
+                            <div class="col-md-5 predict-col" id="adjustDemographics">
+                                <h5>Adjust Population by demographics</h5>
+                                <form action = "/predict" method = "POST">
+                                    <input type="hidden" name="request_type" value="makePrediction">
+                                    <div class="row">
+                                        <div class="col-md-5"><label for="race_white">Race White</label></div>
+                                        <div class="col-md-7"><input type="number" id="race_white" name="race_white" class="form-control"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5"><label for="race_black">Race Black</label></div>
+                                        <div class="col-md-7"><input type="number" id="race_black" name="race_black" class="form-control"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5"><label for="race_asian">Race Asian</label></div>
+                                        <div class="col-md-7"><input type="number"id="race_asian" name="race_asian" class="form-control"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-5"><label for="race_asian">Race Others</label></div>
+                                        <div class="col-md-7"><input type="number"id="race_others" name="race_others" class="form-control"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-5"><label for="race_asian">Race Two or More</label></div>
+                                        <div class="col-md-7"><input type="number"id="race_two_or_more" name="race_two_or_more" class="form-control"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-5"></div>
+                                        <div class="col-md-7"><input type="button" onclick="onMakePrediction()" class="btn btn-primary form-control" value="Predict"></div>    
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- PREDICTIONS -->
+                            <div class="col-md-4 predict-col" id="result">
+                                <div class="prediction-content-wrapper">
+                                    <div class="prediction-result">
+                                        <div class="prediction-value">
+                                            <div id="baseline_value_val"></div>
+                                            <div class="prediction-type">Labor Force</div>
+                                        </div>
+                                        <div class="prediction-value">
+                                            <div id="baseline_value_unemployed_pct_val"></div>
+                                            <div class="prediction-type">Unemployed Pct</div>
+                                        </div>
+                                        <div class="prediction-label">Actual</div>
+                                    </div>
+                                    <hr>
+                                    <div class="prediction-result">
+                                        <div class="prediction-value">
+                                            <div id="prediction_value_val"></div>
+                                            <div class="prediction-type">Labor Force</div>
+                                        </div>
+                                        <div class="prediction-value">
+                                            <div id="prediction_value_unemployed_pct_val"></div>
+                                            <div class="prediction-type">Unemployed Pct</div>
+                                        </div>
+                                        
+                                        <div class="prediction-label">Model Prediction</div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <br><br><br><br>
+                <hr>
+                <div class="col-md-12">
+                    <p>prediction_labor_force_feature_importance</p>
+                    <div id="prediction_labor_force_feature_importance"></div>
+                </div>
+                <div class="col-md-12">
+                    <hr>
+                    <p>prediction_value_unemployed_pct_feature_importance</p>
+                    <div id="prediction_value_unemployed_pct_feature_importance"></div>
+                </div>
+            </div>
+        </div>
+
+        
+        <script>
+            d3.select('#selectCounty').classed("hidden", true);
+            d3.select('#adjustDemographics').classed("hidden", true);
+            d3.select('#result').classed("hidden", true);
+        </script>
+    </body>
+    
+</html>
+
+
+    
