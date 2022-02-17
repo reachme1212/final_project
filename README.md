@@ -5,12 +5,11 @@
 
 **Overview of the analysis:**
 
-In this final project our team has decided to analyze occupation based on demographic information, we are trying to understand if there is a trend or correlation in a certain type of occupation vs location (for example: which city or state offers more technical jobs). Question we hope to answer “is there a relationship between demography and Job type”. 
+In this final project our team has decided to analyze unemployment data in US states and counties, we wanted to see which states and counties has most unemployment rate. Question we hope to answer is which state/county has the most unemployed population, with the given features in the data-set can we predict the unemployment for those states and counties.
 
-Reason we choose this topic is our curiosity to find which city or state has most tech/data jobs, now most tech jobs can be performed remotely, applying in multiple states which offers more jobs increases our probability of getting the job we desire faster.
+The BLS data show that the nation's three largest cities have unemployment rates dramatically higher than the national average of 5.9 percent in June 2021, with Los Angeles and New York at 10.6 percent and Chicago at 8.2 percent.Reason we choose this topic is our curiosity about the “great resignation” , and what percentage of labor force is actually unemployed and not contributing to the countries economy.
 
-Overall outline of this analysis is getting employment and demographic data, Merge and clean the data, upload the final clean data to database and create a machine model and dashboard to add some interactive elements.
-
+Overall outline of this analysis is getting employment and demographic data, Merge and clean the data,upload the clean data in to a database and create a machine model and visualizations and interactive elements.
 
 **Developers**
 
@@ -20,33 +19,43 @@ Overall outline of this analysis is getting employment and demographic data, Mer
 
 **Git-hub and general communication:**
 
-Team members are assigned specific roles every week in this project, we all work together on each part of the project. we meet via zoom twice a week on Tuesdays and Thursdays (6 or 6.30pm) to discuss ideas and responsibilities. We use slack every day to communicate ideas and changes made to repository.In our team to avoid git issues we work on our separate branch after we merge to main we delete the branch from the repository.
+Team members are assigned specific roles each week in this project, we all work together on all parts of the project. we meet via zoom twice a week on Tuesdays and Thursdays (6 or 6.30pm ) to discuss ideas and responsibilities. We use slack every day to communicate ideas and changes made to repository.In our team to avoid git issues we work on our separate branch after we merge the branch to main we delete the branch from the repository.
 
-**Understanding the dataset:** 
+**Data-exploration and analysis:** 
 
-After we cleaned and merged the two data frames (employment and demographic information), we spent some time to explore the data and to decide what we can predict from this dataset.
+Data exploration is the first step of data analysis used to explore and visualize data to uncover insights from the start or identify areas or patterns to dig into more. After cleaning and uploading the data in to our database, we have spent some time to explore the data , to decide whether there is any trend in the data ,what analysis will answer our question better , what story we can tell with the dataset, Using pandas and matplotlib  we analyzed the dataset, we started to see a trend the counties with most population also have more unemployment rates.Our data exploration and analysis are in the files "Employment_by_County notebook" and "Charts_from_Employment_by_County"
+
 
 ![data_frame](images/final_data.PNG)
-![projected_erd](images/project_ERD_DB.PNG)
+
 
 **Data Source:**
 
-We have downloaded employment data from bls.gov, we used the demographic data from a private database link given below.
+We have downloaded employment data from bls.gov.Link given below 
 
-https://www.bls.gov/oes/tables.htm
+https://www.bls.gov/lau/#cntyaa
 
-https://www.cubitplanning.com
 
 **Machine Learning:** 
 
-We have tried linear regression and quantifying linear regression , both did not perform well for our data set , so we have built a random regressor model.
+We have built a random forest regressor model to predict "unemployment" or "unemployement percentage" in these counties, 
+
+Description of preliminary data preprocessing 
+Description of preliminary feature engineering and preliminary feature selection, including their decision-making process 
+Description of how data was split into training and testing sets 
+Explanation of model choice, including limitations and benefits
+
 
 ![Regressor](images/ml_r2.PNG)
 
 **Database:** 
 
-We have set up the database that will connect to AWS with our sample data. We have created tables in postgres to load different dataframes we will join using SQL and create a new combined data that can be used to train and test the machine model.
+We have set up the database that will connect to AWS with our data. We have created tables in postgres to load the dataframes, we used join using SQL and create a new combined data that has the geoid that can be used to train and test the machine model.
+
+![projected_erd](images/project_ERD_DB.PNG)
+
+![tables from database ](images/tables_DB.PNG)
 
 **Dashboard** 
 
-We are building a google slides, to create an initial dashboard , we have to decide whether we are going to use tableau or other dashboard options for our final dashboard.
+We are building a google slides, to create an initial dashboard , for our final visual presentation we have decided to used tableau dash boards and a web page that will show the interactive element of our charts and the analysis prediction by our machine model
