@@ -9,7 +9,7 @@ In this final project our team has decided to analyze unemployment data in US st
 
 The BLS data show that the nation's three largest cities have unemployment rates dramatically higher than the national average of 5.9 percent in June 2021, with Los Angeles and New York at 10.6 percent and Chicago at 8.2 percent.Reason we choose this topic is our curiosity about the “great resignation” , and what percentage of labor force is actually unemployed and not contributing to the countries economy.
 
-Overall outline of this analysis is getting employment and demographic data, Merge and clean the data,upload the clean data in to a database and create a machine model and visualizations and interactive elements.
+Overall outline of this analysis is getting employment and demographic data, Merge and clean the data,upload the clean data in to a database and create a machine model , visualizations and interactive elements.
 
 **Developers**
 
@@ -45,7 +45,6 @@ Description of preliminary feature engineering and preliminary feature selection
 Description of how data was split into training and testing sets 
 Explanation of model choice, including limitations and benefits
 
-
 ![Regressor](images/ml_r2.PNG)
 
 **Database:** 
@@ -54,8 +53,12 @@ We have set up the database that will connect to AWS with our data. We have crea
 
 ![projected_erd](images/project_ERD_DB.PNG)
 
-![tables from database ](images/tables_DB.PNG)
 
 **Dashboard** 
 
-We are building a google slides, to create an initial dashboard , for our final visual presentation we have decided to used tableau dash boards and a web page that will show the interactive element of our charts and the analysis prediction by our machine model
+We are building a google slides, to create an initial dashboard , for our final visual presentation we have decided to used tableau dash boards and a web page that will show the interactive element of our charts and the analysis prediction by our machine model.
+
+![Dashboard 1](https://public.tableau.com/app/profile/sangeetha.venu.gopalan/viz/Final_project_stateoverview_db/State_overview_db?publish=yes)
+![Dashboard 2](https://public.tableau.com/app/profile/sangeetha.venu.gopalan/viz/Final_project_county_db/county_overview_db?publish=yes)
+![Dashboard 3](https://public.tableau.com/app/profile/sangeetha.venu.gopalan/viz/Final_project_top_unemp_db/state_county_top_unemployed_db?publish=yes)
+![Dashboard 4](https://public.tableau.com/app/profile/sangeetha.venu.gopalan/viz/Final_project_Race_map/race_pop?publish=yes)
