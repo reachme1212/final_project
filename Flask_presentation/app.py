@@ -2,10 +2,17 @@
 from flask import Flask, render_template, redirect, url_for
 import numpy as np
 import pandas as pd
+import os
 from flask import Flask, json, jsonify
 from flask import Flask, render_template, request
 from urllib.parse import unquote
 import pickle
+import json
+
+appPath =  (os.path.abspath(os.pardir))
+# Catch heroku 
+if (len(appPath)<10):
+    appPath = "/app"
 
 # Create Flask application
 app = Flask(__name__)
@@ -13,7 +20,18 @@ app = Flask(__name__)
 # Define routes and route functions
 @app.route("/")
 def index():
-    return render_template("home.html")
+    return render_template("home.html", 
+    filepath =  (appPath)
+    )
+
+@app.route("/test1")
+def test1():
+    return "test1"
+
+@app.route("/test2")
+def test2():
+    return {'a':1, 'b':2}
+
 
 @app.route("/analysis")
 def analysis():
@@ -25,19 +43,23 @@ def returnStateOptions():
 
     return states
 
+Employment_by_County = appPath + '/Flask_presentation/static/data_files/Employment_by_County.csv'
+
 # Todo: link up to CSV/DB
 # Todo: SQL : SELECT DISTINCT county FROM db.table;
 def returnStateCountyOptions():
-    df = pd.read_csv('static/data_files/Employment_by_County.csv', dtype=str)
+    df = pd.read_csv(Employment_by_County)
+    #df = pd.read_csv('/app/Flask_presentation/static/data_files/Employment_by_County.csv', dtype=str)
     search_state = request.args.get("state").replace("'","")
     results = df[df['county'].str.contains(search_state)]
     response = results['county']
     response = response.to_list()
     counties = {"counties":response}
-    return counties
+    return jsonify(counties)
 
 def returnCountyDemographics():
-    df = pd.read_csv('static/data_files/Employment_by_County.csv', dtype=str)
+    df = pd.read_csv(Employment_by_County)
+    #df = pd.read_csv('/app/Flask_presentation/static/data_files/Employment_by_County.csv', dtype=str)
     search_county = request.args.get("county").replace("%20", " ")
     search_county = unquote(search_county)
     results_ = df[df['county'].str.contains(search_county)]
@@ -60,38 +82,49 @@ def stateCounties():
 def makePrediction():
     feature_columns = ['race_white', 'race_black', 'race_asian', 'race_two_or_more',   'race_others']
     if request.json:
-        # Labor force prediction
-        filename_labor_force = './static/model/finalized_model_labor_force.sav'
-        model_labor_force = pickle.load(open(filename_labor_force, 'rb'))
+
+        # Extra json input
         race_white = request.json.get('race_white')
         race_black = request.json.get('race_black')
         race_asian = request.json.get('race_asian')
         race_others = request.json.get('race_others')
         race_two_or_more = request.json.get('race_two_or_more')
+
+        # Labor force prediction
+        #filename_labor_force = '/app/Flask_presentation/static/model/finalized_model_labor_force.sav'
+        filename_labor_force = appPath + '/Flask_presentation/static/model/finalized_model_labor_force.sav'
+        model_labor_force = pickle.load(open(filename_labor_force, 'rb'))
         prediction_labor_force = model_labor_force.predict([[race_white,race_black,race_asian,race_others,race_two_or_more]])[0]
         prediction_labor_force_feature_importance_ = sorted(zip(model_labor_force.feature_importances_, feature_columns), reverse=True)
         prediction_labor_force_feature_importance = json.dumps(prediction_labor_force_feature_importance_)
 
         # Unemployment pct prediction
-        filename_unemployment_pct= './static/model/finalized_model_unemployment_pct.sav'
+        #filename_unemployment_pct= '/app/Flask_presentation/static/model/finalized_model_unemployment_pct.sav'
+        filename_unemployment_pct = appPath + '/Flask_presentation/static/model/finalized_model_unemployment_pct.sav'
         model_unemployment_pct = pickle.load(open(filename_unemployment_pct, 'rb'))
-        race_white = request.json.get('race_white')
-        race_black = request.json.get('race_black')
-        race_asian = request.json.get('race_asian')
-        race_others = request.json.get('race_others')
-        race_two_or_more = request.json.get('race_two_or_more')
         prediction_unemployment_pct = model_unemployment_pct.predict([[race_white,race_black,race_asian,race_others,race_two_or_more]])[0]
         prediction_unemployment_pct_feature_importance_ = sorted(zip(model_unemployment_pct.feature_importances_, feature_columns), reverse=True)
         prediction_unemployment_pct_feature_importance = json.dumps(prediction_unemployment_pct_feature_importance_)
+
+        # Unemployed  prediction
+        #filename_unemployed= '/app/Flask_presentation/static/model/finalized_model_unemployed.sav'
+        filename_unemployed = appPath + '/Flask_presentation/static/model/finalized_model_unemployed.sav'
+        model_unemployed = pickle.load(open(filename_unemployed, 'rb'))
+        prediction_unemployed = model_unemployed.predict([[race_white,race_black,race_asian,race_others,race_two_or_more]])[0]
+        prediction_unemployed_feature_importance_ = sorted(zip(model_unemployed.feature_importances_, feature_columns), reverse=True)
+        prediction_unemployed_feature_importance = json.dumps(prediction_unemployed_feature_importance_)
         
         # Return data in json format
         prediction_labor_force = round(prediction_labor_force)
         prediction_unemployment_pct = round(prediction_unemployment_pct, 1)
+        prediction_unemployed = round(prediction_unemployed)
         return jsonify({
             "prediction_labor_force": prediction_labor_force, 
             "prediction_labor_force_feature_importance": prediction_labor_force_feature_importance, 
             "prediction_unemployment_pct": prediction_unemployment_pct, 
-            "prediction_unemployment_pct_feature_importance":prediction_unemployment_pct_feature_importance
+            "prediction_unemployment_pct_feature_importance":prediction_unemployment_pct_feature_importance,
+            "prediction_unemployed": prediction_unemployed, 
+            "prediction_unemployed_feature_importance":prediction_unemployment_pct_feature_importance
         })
 
 

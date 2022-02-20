@@ -14,9 +14,9 @@
       .predict-col form .row {margin: 20px 10px}
       .prediction-content-wrapper {border-left: 1px solid #efefef; padding:40px 20px 40px 40px}
       .prediction-result {min-height: 160px;  padding-top: 20px;}
-      .prediction-value {font-size: 40px; font-weight: 700; text-align: center; display: inline-block; width: 49%;}
-      .prediction-type {font-size: 18px; font-weight: 700; text-align: center;}
-      .prediction-label {font-size: 18px; font-weight: 400; text-align: center}
+      .prediction-value {font-size: 40px; font-weight: 700; text-align: center; display: inline-block; width: 32%;}
+      .prediction-type {font-size: 14px; font-weight: 700; text-align: center;}
+      .prediction-label {font-size: 18px; font-weight: 400; text-align: center; padding:10px 0}
     
       .team-member {text-align: center; padding: 60px 10px;}
       .team-member .avatar {width: 80px; height: 80px; border-radius: 50%; border:4px solid #0C234B; background-color: #0C234B; margin: 0 auto 30px auto}

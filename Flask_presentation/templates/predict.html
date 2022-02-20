@@ -10,7 +10,7 @@
             function onRequestStateCounties()
             {
                 var requested_state = d3.select('#requested_state').node().value
-                const url = "http://127.0.0.1:5000/listStateCounties?state="+requested_state
+                const url = "/listStateCounties?state="+requested_state
                 fetch(url).then(function(response) {
                     return response.json();
                 }).then(function(data) {
@@ -31,7 +31,7 @@
             function onMakePrediction()
             {
                 //var requested_state = d3.select('#requested_state').node().value;
-                const url = "http://127.0.0.1:5000/makePrediction"
+                const url = "/makePrediction"
                 var payload = {
                     race_white: d3.select('#race_white').node().value,
                     race_black: d3.select('#race_black').node().value,
@@ -54,14 +54,16 @@
                     d3.select("#prediction_value_val").html(res.prediction_labor_force)
                     d3.select("#prediction_value_unemployed_pct_val").html(res.prediction_unemployment_pct)
                     d3.select("#prediction_value_unemployed_pct_feature_importance").html(res.prediction_unemployment_pct_feature_importance)
-                    d3.select("#prediction_labor_force_feature_importance").html(res.prediction_labor_force_feature_importance)
+                    d3.select("#prediction_value_labor_force_feature_importance").html(res.prediction_labor_force_feature_importance)
+                    d3.select("#prediction_value_unemployed_val").html(res.prediction_unemployed)
+                    d3.select("#prediction_value_unemployed_feature_importance").html(res.prediction_unemploy_feature_importance)
                 });
             }
         
             function onGetCountyDemographic()
             {
                 var requested_county = d3.select('#county_options').node().value;
-                const url = "http://127.0.0.1:5000/getCountyDemogrographic?county="+requested_county;
+                const url = "/getCountyDemogrographic?county="+requested_county;
                 fetch(url, {
                     method: 'GET',
                     headers: {
@@ -83,6 +85,7 @@
                     d3.select("#race_two_or_more").property("value", demographic['race_two_or_more']);
                     d3.select("#baseline_value_val").html(demographic['labor_force']);
                     d3.select("#baseline_value_unemployed_pct_val").html(demographic['unemployed_pct']);
+                    d3.select("#baseline_value_unemployed_val").html(demographic['unemployed']);
                     onMakePrediction();
                 }).catch(function() {
                     console.log("Something went wrong");
@@ -90,6 +93,9 @@
             }
             
         </script>
+        <style>
+            .small  {font-size: 80%}
+        </style>
     </head>
     <body>
         <div class="container-fluid">
@@ -204,7 +210,11 @@
                                             <div id="baseline_value_unemployed_pct_val"></div>
                                             <div class="prediction-type">Unemployed Pct</div>
                                         </div>
-                                        <div class="prediction-label">Actual</div>
+                                        <div class="prediction-value">
+                                            <div id="baseline_value_unemployed_val"></div>
+                                            <div class="prediction-type">Unemployed</div>
+                                        </div>
+                                        <div class="prediction-label">Actual<p class="small">These are actual values for this County</p></div>
                                     </div>
                                     <hr>
                                     <div class="prediction-result">
@@ -216,8 +226,12 @@
                                             <div id="prediction_value_unemployed_pct_val"></div>
                                             <div class="prediction-type">Unemployed Pct</div>
                                         </div>
+                                        <div class="prediction-value">
+                                            <div id="prediction_value_unemployed_val"></div>
+                                            <div class="prediction-type">Unemployed</div>
+                                        </div>
                                         
-                                        <div class="prediction-label">Model Prediction</div>
+                                        <div class="prediction-label">Model Prediction<p class="small">This is what our model predicted this County to be.</p></div>
                                     </div>
                                 </div>
 
@@ -234,7 +248,7 @@
                 <hr>
                 <div class="col-md-12">
                     <p>prediction_labor_force_feature_importance</p>
-                    <div id="prediction_labor_force_feature_importance"></div>
+                    <div id="prediction_value_labor_force_feature_importance"></div>
                 </div>
                 <div class="col-md-12">
                     <hr>
