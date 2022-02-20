@@ -45,12 +45,13 @@ https://data.census.gov/
 
 Data preprocessing improves the data quality by cleaning, normalizing, transforming and extracting relevant feature from raw data. Our raw data came in with columns with data type objects, the machine model we have built can only take in columns with numbers, we have formatted the dataframe “features” into integer columns, dropped unwanted columns, remove null/missing values.
 
-Feature engineering and preliminary feature selection: We have initially tried linear regression and we did not get great results , after our team meeting we have come up with random forest regressor model because this technique that combines predictions from multiple machine learning algorithms to make a more accurate prediction than a single model,more on information about our machine model is in our google slides,then we decided our features and tested how weight of each feature affected the predictions, then we split the data into training and testing 80-20, we have got very good accuracy scores.
+Feature engineering is the process of selecting, manipulating, and transforming raw data into features that can be used in supervised learning. In order to make our model work well, we have discussed which features should be included and which one should be dropped.To get more truer predictions the features should be picked carefully , However in our dataset unemployment will be more where there are more population, so we decided to add education information as a feature , then we used race information , education information to predict unemployed count for the county.
+
+If the model does not perform well on the unseen dataset(test) ,but gives a high score on the seen dataset , the model is overfitting, our test score is 93% ,so our random regressor model is performing well and not overfitting.
+
 
 ![Regressor](images/ml_r2.PNG)
 
-
-![Regressor](images/ml2_r2.PNG)
 
 **Database:** 
 
@@ -81,7 +82,7 @@ We are building a google slides, to create an initial dashboard , for our final 
 
 **Results:**
 
-Our model predicts countywise unemployement total using the features in our dataset , model predicts with 96% accuracy , we decided to host our webpage in heroku cloud application, please click on the link below to see that in action.
+Our model predicts countywise unemployement total using the features in our dataset , model predicts with 93 to 95% accuracy (we have 2 sets of X), we decided to host our webpage in heroku cloud application, please click on the link below to see that in action.
 
 [heroku_link]()
 
