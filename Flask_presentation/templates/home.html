@@ -63,12 +63,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <p><h2>Analyzing concentration of occupation based on location in USA</h2></p>
-                                <p>In this final project our team has decided to analyze unemployment data in US states and counties, we wanted to see which states and counties<br>
-                                   has most unemployment rate.  Question we hope to answer is which state/county has the most unemployed population, with the given features in <br>
-                                   the data-set can we predict the unemployment for those states and counties. The BLS data show that the nation's three largest cities have <br>
-                                   unemployment rates dramatically higher than the national average of 5.9 percent in June 2021, with Los Angeles and New York at 10.6 percent <br>
-                                   and Chicago at 8.2 percent.Reason we choose this topic is our curiosity about the “great resignation” , and what percentage of labor force is actually <br>
-                                   unemployed and not contributing to the countries economy. </p> 
+                                <p>In this final project our team has decided to analyze unemployment data in US states and counties, we wanted to see which states and counties has most unemployment rate.  Question we hope to answer is which state/county has the most unemployed population, with the given features in the data-set can we predict the unemployment for those states and counties. The BLS data show that the nation's three largest cities have 
+                                    unemployment rates dramatically higher than the national average of 5.9 percent in June 2021, with Los Angeles and New York at 10.6 percent and Chicago at 8.2 percent.Reason we choose this topic is our curiosity about the “great resignation” , and what percentage of labor force is actually unemployed and not contributing to the countries economy. </p> 
                         </div>
                         <div class="row justify-content-center">
                             <div class="col-md-3">
@@ -100,10 +96,24 @@
                                and create a new combined data that has the geoid that can be used to train and test the machine model.</p>
                                 <img src="https://github.com/reachme1212/final_project/raw/main/images/project_ERD_DB.PNG" alt="projected_erd" style="max-width: 100%;" alt="projected_erd" style="max-width: 100%;">
                             <p><h2>ETL Process</h2></p>
-                            <p>Description of getting data, transofming the date, and loading the data.  </p>
+                            <p>The team sourced the data from several different sites include the Federal US government.  The data was extracted in Excel or CSV files and then loaded into a jupyter notebook for cleaning and transofing the data using python and pandas.  Once the data was clean, each of the csv files were loaded to a cloud Postgres DB using Amazon Web Servies RDS.  
+                                With the data no hosted in AWS, the machine learning model can connect and import the data before processes.  </p>
                             <p><h2>Machine Learning</h2></p>
                             <p>Data preprocessing improves the data quality by cleaning, normalizing, transforming and extracting relevant feature from raw data. Our raw data came in with columns with data type objects, the machine model we have built can only take in columns with numbers, we have formatted the dataframe “features” in to integer columns, remove null/missing values.
                                Feature engineering and preliminary feature selection: We have initially tried linear regression and we did not get great results , after our team discussion we have come up with random forest regressor model because this technique that combines predictions from multiple machine learning algorithms to make a more accurate prediction than a single model ,then we decided our features and tested how weight of each feature affected the predictions, then we split the data into training and testing 80-20, we have got the very good accuracy score.</p>
+                            <p><h2>Results</h2></p>
+                            <p>Our model predicts countywise unemployement total using the features in our dataset , model predicts with 96% accuracy , we decided to host our webpage in heroku cloud application, please click on the link below to see that in action.</p>        
+                            <p><h2>Recommendation for future analysis</h2></p>  
+                             <p>We could improve this analysis by looking deep into the reasons for the high unemployement rates in those counties and exploring data to support that. If we had more time we were planning to do a race based unemployement analysis , to do that we need additional race base data that was not readily available.</p>  
+                             <p><h2>Technologies and tools used for this analysis</h2></p>
+                             <UL>
+                                <LI>Languages : Python, pandas, html, Javascript, css
+                                <LI>Tools : Tableau, Heroku, and Google slides.
+                                <LI>Datbase: PostGres DB, AWS RDS, SQLAlchemy, psycopg2
+                                </UL>                           
+                             
+                            <!--   [google slides](https://docs.google.com/presentation/d/1vhAENddHRfgTb4mEkrhFVYieG4LQkvR6Cyb3pK8beMo/edit#slide=id.p)-->
+                              
                         </div>
                     </div>
                 </div>
