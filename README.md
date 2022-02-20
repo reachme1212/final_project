@@ -84,7 +84,7 @@ We are building a google slides, to create an initial dashboard , for our final 
 
 Our model predicts countywise unemployement total using the features in our dataset , model predicts with 93 to 95% accuracy (we have 2 sets of X), we decided to host our webpage in heroku cloud application, please click on the link below to see that in action.
 
-[heroku_link]()
+[heroku_link](https://uofa-project.herokuapp.com)
 
 [google slides](https://docs.google.com/presentation/d/1vhAENddHRfgTb4mEkrhFVYieG4LQkvR6Cyb3pK8beMo/edit#slide=id.p)
 
