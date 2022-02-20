@@ -62,10 +62,13 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <p>In this final project our team has decided to analyze occupation, based on demographic information.  We are trying to understand if there is a trend or correlation in a certain type of occupation vs location (for example: which city or state offers more technical jobs). Question: we hope to answer “is there a relationship between demography and Job type”.</p>
-                                <p>Reason we choose this topic is our curiosity to find which city or state has most tech/data jobs, now most tech jobs can be performed remotely, applying in multiple states which offers more jobs increases our probability of getting the job we desire faster.</p>
-                                <p>Overall outline of this analysis is getting employment and demographic data, merge and clean the data, upload the final clean data to database and create a machine model and dashboard to add some interactive elements.</p>
-                            </div>
+                                <p><h2>Analyzing concentration of occupation based on location in USA</h2></p>
+                                <p>In this final project our team has decided to analyze unemployment data in US states and counties, we wanted to see which states and counties<br>
+                                   has most unemployment rate.  Question we hope to answer is which state/county has the most unemployed population, with the given features in <br>
+                                   the data-set can we predict the unemployment for those states and counties. The BLS data show that the nation's three largest cities have <br>
+                                   unemployment rates dramatically higher than the national average of 5.9 percent in June 2021, with Los Angeles and New York at 10.6 percent <br>
+                                   and Chicago at 8.2 percent.Reason we choose this topic is our curiosity about the “great resignation” , and what percentage of labor force is actually <br>
+                                   unemployed and not contributing to the countries economy. </p> 
                         </div>
                         <div class="row justify-content-center">
                             <div class="col-md-3">
@@ -82,10 +85,25 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="team-member">
-                                    <div class="avatar"></div>
-                                    <p>Ken Paulsen</p>
-                                </div>
+                                    <div class="avatar">
+                                        
+                                    </div>
+                                    <p>Ken Paulson</p>
+                            
+                            
+                                </div>    
                             </div>
+                        </div>
+                        <div class="col-md-12">
+                            <p><h2>DataBase</h2></p>
+                            <p>We have set up the database that will connect to AWS with our data. We have created tables in postgres to load the dataframes, we used join using SQL<br>
+                               and create a new combined data that has the geoid that can be used to train and test the machine model.</p>
+                                <img src="https://github.com/reachme1212/final_project/raw/main/images/project_ERD_DB.PNG" alt="projected_erd" style="max-width: 100%;" alt="projected_erd" style="max-width: 100%;">
+                            <p><h2>ETL Process</h2></p>
+                            <p>Description of getting data, transofming the date, and loading the data.  </p>
+                            <p><h2>Machine Learning</h2></p>
+                            <p>Data preprocessing improves the data quality by cleaning, normalizing, transforming and extracting relevant feature from raw data. Our raw data came in with columns with data type objects, the machine model we have built can only take in columns with numbers, we have formatted the dataframe “features” in to integer columns, remove null/missing values.
+                               Feature engineering and preliminary feature selection: We have initially tried linear regression and we did not get great results , after our team discussion we have come up with random forest regressor model because this technique that combines predictions from multiple machine learning algorithms to make a more accurate prediction than a single model ,then we decided our features and tested how weight of each feature affected the predictions, then we split the data into training and testing 80-20, we have got the very good accuracy score.</p>
                         </div>
                     </div>
                 </div>
