@@ -10,9 +10,9 @@
       .sub-header li a {color: #fff; text-decoration: none; border-bottom: 1px solid transparent;}
       .sub-header li a.active {border-color: #fff;}
       .content-container {padding: 100px 0}
-      .predict-col { margin-top: 60px;}
+      .predict-col { margin-top: 60px; position: relative;}
       .predict-col form .row {margin: 20px 10px}
-      .prediction-content-wrapper {border-left: 1px solid #efefef; padding:40px 20px 40px 40px}
+      .prediction-content-wrapper {border-left: 1px solid #efefef; padding: 0 20px 40px 40px}
       .prediction-result {min-height: 160px;  padding-top: 20px;}
       .prediction-value {font-size: 60px; font-weight: 700; text-align: center; display: block}
       .prediction-type {font-size: 14px; font-weight: 700; text-align: center;}
