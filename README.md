@@ -101,5 +101,7 @@ We could improve this analysis by looking deep into the reasons for the high une
 **Technologies and tools used for this analysis:**
 
 Languages : Python,Html,Javascript,Css.
+
 Database : Postgres , AWS.
+
 Tools : Tableau and Google slides.
