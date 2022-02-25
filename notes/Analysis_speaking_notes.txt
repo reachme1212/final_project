@@ -1,0 +1,14 @@
+Employee Data Statewide Overview
+These maps show the employment and unemployment for each state in the U.S. Notice that states with the largest population areas have the highest employment and unemployment with California, Texas, New York, and Florida. It is interesting to point out that even though Florida has a large population and a large unemployed percentage, is does have a smaller labor force.
+[hover over each map show interaction and statistics.  Make sure to show Florida]
+
+Percentage of the labor force as compared to the population
+The below charts are a choropleth map showing the U.S. Counties similar to the state maps. The first chart shows the population by county, percentage of unemployment by county, employment by county, and percentage of labor force by county. Many of the urban areas and major population counties have a higher percentage of available labor where central southern US has a lower available labor percentage because of a lower population. There is a correlation between population, unemployment, and percentage of labor force.
+[hover over each map show interaction and statistics]
+
+Percentage or Populational by Demographic
+The first graph depicts the breakdown of the US population by demographic. People identifying themselves as white account for nearly 2/3 of the US population. The next highest demographic group are people who identify as black totaling over 40 million people. The second visualization is a map of the US. The map is color coded by quarters using the percentage of people identify as white. The map shows most of the southern US and central California, those counties in light blue and blue have a population of greater than 50% of people that identify as other than white or multiple races. There are few counties in the upper mid-west that are blue with majority of those identifying as Native American.
+[hover over each map show interaction and statistics]
+Education vs Unemployment by County
+Los Angeles County California is the US county with the highest number of the population not to complete college and the highest number of the population that are unemployed. This is not unusual to see in large metro area. For example, the top 9 counties with the highest number of unemployment are counties that contain major metro areas like Chicago, Houston New York, and Phoenix. The map in this Dashboard represents each county and the percent of the population that has not completed a college degree. Counties shaded in blue have a higher percentage of the population that has completed college degree. Using the filter at the bottom of map you can show counties based on percent of unemployment.
+
