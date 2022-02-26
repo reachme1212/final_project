@@ -23,7 +23,9 @@ Team members are assigned specific roles each week in this project, we all work 
 
 **Data-exploration and analysis:** 
 
-Data exploration is the first step of data analysis used to explore and visualize data to uncover insights from the start or identify areas or patterns to dig into. After cleaning and uploading the data in to our database, we have spent some time to explore the data , to decide whether there is any trend in the data ,what analysis will answer our question better , what story we can tell with the dataset. 
+Initially we wanted to predict state/county which offers more tech jobs, we pulled some data from BLS , we have spent most of our first week in finding data and cleaning it code in ETL folder , we have realized the data we found did not have a geoid that will not work for county based analysis, the other challenge was the initial dataset had no suitable predictors we could use and the features did not work well with linear regressor model we have built , so we had to look for new data and in week 2 directions changed and we found data on countywide unemployment and we have decided to predict unemployment based on race population and education features.   
+
+Data exploration is the first step of data analysis used to explore and visualize data to uncover insights from the start or identify areas or patterns to dig into. After cleaning and uploading the data in to our database, we have spent some time to exploring the data , to decide whether there is any trend in the data ,what analysis will answer our question better , what story we can tell with the dataset. 
 
 Using pandas matplotlib we analyzed the dataset, we started to see a trend that counties with most population also have more unemployment rates.Our data exploration and analysis are in the charts folder above.
 
@@ -47,11 +49,14 @@ https://data.census.gov
 
 Data preprocessing improves the data quality by cleaning, normalizing, transforming and extracting relevant feature from raw data. Our raw data came in with columns with data type objects, the machine model we have built can only take in columns with numbers, we have formatted the dataframe “features” into integer columns, dropped unwanted columns, remove null/missing values.
 
-Feature engineering is the process of selecting, manipulating, and transforming raw data into features that can be used in supervised learning. In order to make our model work well, we have discussed which features should be included and which one should be dropped.
+Initially we tried linear regressor and we did not get a decent accuracy score, then we decided to use a random forest regressor model, Random Forest Regression algorithms are a class of Machine Learning algorithms, the combination of multiple random decision trees each trained on a subset of data. The use of multiple trees gives stability to the algorithm and reduces variance. we used train_test_spilt() and split our data into 80-20 , we had about 3200 rows of data.
 
-To get more truer predictions the features should be picked carefully, however in our dataset unemployment will be more where there are more population, so we decided to add education information as a feature as well, then we used race population information, education information to predict unemployed count for a chosen county.
+Feature engineering is the process of selecting, manipulating, and transforming raw data into features that can be used in supervised learning. To get more truer predictions the features should be picked carefully, however in our dataset unemployment weighing more than the other features, so we decided to add more feature to see whether that improves our model prediction.
+In order to make our model work well, we have discussed which features should be included and which one should be dropped. Initially we have tried predicting the unemployment percentage we did not get a good score , then we decide to predict “unemployment” in each county the total number, we have realized its best to use features that are not directly related to unemployment like unemployment percentage for county in our X.
 
-If the model does not perform well on the unseen dataset(test) ,but gives a high score on the seen dataset , the model is overfitting, our test score is 93% ,so our random regressor model is performing well and not overfitting.
+We have learnt that population is weighing more than the other features, so tried to create a balance in feature importance, so we dropped population and used race-based population because of the even distribution of weight, we added feature like education to see if college education impact unemployment in anyway.
+
+Then we trained and tested our random forest regressor and got R squared value of 93%, If the model does not perform well on the unseen dataset(test) ,but gives a high score on the seen dataset , the model is overfitting, looking at the scores below we can say our model is not overfitting.
 
 
 ![Regressor](images/ml_r2.PNG)
@@ -86,7 +91,7 @@ We have created a google slides and tableau charts and dashboards , for our fina
 
 [college unemployment state](https://public.tableau.com/app/profile/sangeetha.venu.gopalan/viz/Final_project_college_unemp_state/high_college_state?publish=yes)
 
-[google slides](https://docs.google.com/presentation/d/1vhAENddHRfgTb4mEkrhFVYieG4LQkvR6Cyb3pK8beMo/edit#slide=id.p)
+[google slides](https://docs.google.com/presentation/d/1vhAENddHRfgTb4mEkrhFVYieG4LQkvR6Cyb3pK8beMo/edit?usp=sharing)
 
 
 **Results:**
