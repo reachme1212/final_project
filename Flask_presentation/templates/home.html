@@ -1,157 +1,178 @@
 <html>
-    <head>
-        <title>Final Project</title>
-        <script src="https://d3js.org/d3.v7.min.js"></script>
-        <script src = "https://d3js.org/d3-request.v1.min.js"></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <link rel="stylesheet" href="static/css/styles.css">
-        <!-- your custom javascript-->
-        <script>
 
-        </script>
-        <!-- your custom styles -->
-        <style>
+<head>
+    <title>Final Project</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/d3-request.v1.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/styles.css">
+    <!-- your custom javascript-->
+    <script>
+    </script>
+    <!-- your custom styles -->
+    <style>
 
-        </style>
-    </head>
-    <body>
-        <div class="container-fluid">
-            <!-- MAIN HEADER -->
-            <div class="row mast-head">
-                <div class="col-md-12 sub-header">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-1">
-                                <img src="https://instructure-uploads-pdx.s3.us-west-2.amazonaws.com/account_150420000000000001/attachments/60993/arizona-square.png" height="90">
-                            </div>
-                            <div class="col-md-5">
-                                <p>University of Arizona : Data Analytics and Visualization Bootcamp</p>
-                            </div>
-                            <div class="col-md-6">
-                                <ul>
-                                    <li><a href="/" class="active">Home</a></li>
-                                    <li><a href="/analysis">Analysis</a></li>
-                                    <li><a href="/predict-unemployed">Predict</a></li>
-                                </ul>
-                            </div>
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- MAIN HEADER -->
+        <div class="row mast-head">
+            <div class="col-md-12 sub-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <img src="https://instructure-uploads-pdx.s3.us-west-2.amazonaws.com/account_150420000000000001/attachments/60993/arizona-square.png" height="90">
                         </div>
-
-                        <div class="row">
-                            <div class="col-md-6"><br>
-                                <h1>Analyzing concentration of occupation based on location in USA</h1>
-                            </div>
-                            <div class="col-md-6"></div>
+                        <div class="col-md-5">
+                            <p>University of Arizona : Data Analytics and Visualization Bootcamp</p>
                         </div>
-                        
+                        <div class="col-md-6">
+                            <ul>
+                                <li><a href="/" class="active">Home</a></li>
+                                <li><a href="/analysis">Analysis</a></li>
+                                <li><a href="/predict-unemployed">Predict</a></li>
+                            </ul>
+                        </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-md-6"><br>
+                            <h1>Analyzing concentration of occupation based on location in USA</h1>
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="container">
-            <!-- CONTENT BODY -->
-            <div class="row">
-                <div class="col-md-12 content-container">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12"><h1>About the Project</h1></div>
+    <div class="container">
+        <!-- CONTENT BODY -->
+        <div class="row">
+            <div class="col-md-12 content-container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1>About the Project</h1>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12"><hr></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <hr>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h2>Analyzing concentration of occupation based on location in USA</h2>
-                                <p>In this final project our team has decided to analyze unemployment data in US states and counties, we wanted to see which states and counties has most unemployment rate. Question we hope to answer is 'which state/county has the most unemployed population', with the given features in the data-set can we predict the unemployment for those states and counties.</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>Analyzing concentration of Unemployment in US states and counties</h2>
+                            <p>In this final project our team has decided to analyze unemployment data in US states and counties, we wanted to see which states and counties has most unemployment rate. Question we hope to answer is 'which state/county has
+                                the most unemployed population', with the given features in the data-set can we predict the unemployment for those states and counties.</p>
 
-                                <p>The BLS data show that the nation's three largest cities LA, New York and Chicago have unemployment rates dramatically higher than the national average of 5.9 percent in last year. Reason we choose this topic is our curiosity about the “great resignation”, and what percentage of labor force is actually unemployed and not contributing to the country’s economy.</p>
-                                    
-                                <p>Overall outline of this analysis is getting employment ,demographic data and education data, clean ,merge and upload the data into a database and create a machine model, visualizations and interactive maps to see the results.</p>
+                            <p>The BLS data show that the nation's three largest cities LA, New York and Chicago have unemployment rates dramatically higher than the national average of 5.9 percent in last year. Reason we choose this topic is our curiosity
+                                about the “great resignation”, and what percentage of labor force is actually unemployed and not contributing to the country’s economy.</p>
+
+                            <p>Overall outline of this analysis is getting employment ,demographic data and education data, clean ,merge and upload the data into a database and create a machine model, visualizations and interactive maps to see the results.</p>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-md-3">
+                            <div class="team-member">
+                                <div class="avatar"></div>
+                                <p>Sangeetha Venu Gopalan</p>
                             </div>
                         </div>
-                        <div class="row justify-content-center">
-                            <div class="col-md-3">
-                                <div class="team-member">
-                                    <div class="avatar"></div>
-                                    <p>Sangeetha Venu Gopalan</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="team-member">
-                                    <div class="avatar"></div>
-                                    <p>Khanh Ngo</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="team-member">
-                                    <div class="avatar"></div>
-                                    <p>Ken Paulson</p>
-                                </div>    
+                        <div class="col-md-3">
+                            <div class="team-member">
+                                <div class="avatar"></div>
+                                <p>Khanh Ngo</p>
                             </div>
                         </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h3><br><br>Git-hub and team communication:</h3>
-                                <p>Team members are assigned specific roles each week in this project, we all work together on all parts of the project. we meet via zoom twice a week on Tuesdays and Thursdays (6 or 6.30pm Arizona time) to discuss ideas and responsibilities. We use slack every day to communicate ideas and changes made to repository.In our team to avoid git issues we work on our individual branch after we merge the branch to main we delete the branch from the repository.</p>
-                                
-                                <h3>Data-exploration and analysis:</h3>
-                                <p>Data exploration is the first step of data analysis used to explore and visualize data to uncover insights from the start or identify areas or patterns to dig into. After cleaning and uploading the data in to our database, we have spent some time to explore the data , to decide whether there is any trend in the data ,what analysis will answer our question better , what story we can tell with the dataset.</p>
-                                <p>Using pandas's matplotlib we analyzed the dataset, we started to see a trend that counties with most population also have more unemployment rates.Our data exploration and analysis are in the charts folder above.</p>
-                                <p>Then we wanted to see if education levels impact higher unemployment rates , we have downloaded countywise education data, and built a tableau chart to see relationship between population, education and unemployment.</p>
-                                <p><a target="_blank" rel="noopener noreferrer" href="https://www.github.com/reachme1212/final_project/blob/main/images/final_data.PNG"><img src="https://www.github.com/reachme1212/final_project/raw/main/images/final_data.PNG" alt="data_frame" style="max-width: 100%;"></a></p>
-                                <p><a target="_blank" rel="noopener noreferrer" href="https://www.github.com/reachme1212/final_project/blob/main/images/final_data2.PNG"><img src="https://www.github.com/reachme1212/final_project/raw/main/images/final_data2.PNG" alt="data_frame" style="max-width: 100%;"></a></p>
-                                <p><a target="_blank" rel="noopener noreferrer" href="https://www.github.com/reachme1212/final_project/blob/main/images/corr.PNG"><img src="https://www.github.com/reachme1212/final_project/raw/main/images/corr.PNG" alt="correlation" style="max-width: 100%;"></a></p>
+                        <div class="col-md-3">
+                            <div class="team-member">
+                                <div class="avatar"></div>
+                                <p>Ken Paulson</p>
                             </div>
                         </div>
+                    </div>
 
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3><br><br>Git-hub and team communication:</h3>
+                            <p>Team members are assigned specific roles each week in this project, we all work together on all parts of the project. we meet via zoom twice a week on Tuesdays and Thursdays (6 or 6.30pm Arizona time) to discuss ideas and responsibilities.
+                                We use slack every day to communicate ideas and changes made to repository.In our team to avoid git issues we work on our individual branch after we merge the branch to main we delete the branch from the repository.</p>
 
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h3><br><br>Data Source:</h3>
-                                <p>We have downloaded all relevant data from the below pages.</p>
-                                <p><a href="https://www.bls.gov" rel="nofollow">https://www.bls.gov</a></p>
-                                <p><a href="https://data.census.gov" rel="nofollow">https://data.census.gov</a></p>
-                            </div>
+                            <h3>Data-exploration and analysis:</h3>
+                            <p>Data exploration is the first step of data analysis used to explore and visualize data to uncover insights from the start or identify areas or patterns to dig into. After cleaning and uploading the data in to our database,
+                                we have spent some time to explore the data , to decide whether there is any trend in the data ,what analysis will answer our question better , what story we can tell with the dataset.</p>
+                            <p>Using pandas's matplotlib we analyzed the dataset, we started to see a trend that counties with most population also have more unemployment rates.Our data exploration and analysis are in the charts folder above.</p>
+                            <p>Then we wanted to see if education levels impact higher unemployment rates , we have downloaded countywise education data, and built a tableau chart to see relationship between population, education and unemployment.</p>
+                            <p>
+                                <a target="_blank" rel="noopener noreferrer" href="https://www.github.com/reachme1212/final_project/blob/main/images/final_data.PNG"><img src="https://www.github.com/reachme1212/final_project/raw/main/images/final_data.PNG" alt="data_frame" style="max-width: 100%;"></a>
+                            </p>
+                            <p>
+                                <a target="_blank" rel="noopener noreferrer" href="https://www.github.com/reachme1212/final_project/blob/main/images/final_data2.PNG"><img src="https://www.github.com/reachme1212/final_project/raw/main/images/final_data2.PNG" alt="data_frame" style="max-width: 100%;"></a>
+                            </p>
+                            <p>
+                                <a target="_blank" rel="noopener noreferrer" href="https://www.github.com/reachme1212/final_project/blob/main/images/corr.PNG"><img src="https://www.github.com/reachme1212/final_project/raw/main/images/corr.PNG" alt="correlation" style="max-width: 100%;"></a>
+                            </p>
                         </div>
+                    </div>
 
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h3><br><br>Machine Learning:</h3>
-                                <p>Data preprocessing improves the data quality by cleaning, normalizing, transforming and extracting relevant feature from raw data. Our raw data came in with columns with data type objects, the machine model we have built can only take in columns with numbers, we have formatted the dataframe “features” into integer columns, dropped unwanted columns, remove null/missing values.</p>
-                                <p>Feature engineering is the process of selecting, manipulating, and transforming raw data into features that can be used in supervised learning. In order to make our model work well, we have discussed which features should be included and which one should be dropped.</p>
-                                <p>To get more truer predictions the features should be picked carefully , However in our dataset unemployment will be more where there are more population, so we decided to add education information as a feature as well, then we used race population information , education information to predict unemployed count for a choosen county.</p>
-                                <p>If the model does not perform well on the unseen dataset(test) ,but gives a high score on the seen dataset , the model is overfitting, our test score is 93% ,so our random regressor model is performing well and not overfitting.</p>
-                                <p><a target="_blank" rel="noopener noreferrer" href="https://www.github.com/reachme1212/final_project/blob/main/images/ml_r2.PNG"><img src="https://www.github.com/reachme1212/final_project/raw/main/images/ml_r2.PNG" alt="Regressor" style="max-width: 100%;"></a></p>
-                            </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3><br><br>Data Source:</h3>
+                            <p>We have downloaded all relevant data from the below pages.</p>
+                            <p><a href="https://www.bls.gov" rel="nofollow">https://www.bls.gov</a></p>
+                            <p><a href="https://data.census.gov" rel="nofollow">https://data.census.gov</a></p>
                         </div>
+                    </div>
 
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h3><br><br>DataBase</h3>
-                                <p>We have set up the database that will connect to AWS with our data. We have created tables in postgres to load the dataframes, we used join using SQL<br>
-                                and create a new combined data that has the geoid that can be used to train and test the machine model.</p>
-                                    <img src="https://github.com/reachme1212/final_project/raw/main/images/project_ERD_DB.PNG" alt="projected_erd" style="max-width: 100%;" alt="projected_erd" style="max-width: 100%;">
-                            </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3><br><br>Machine Learning:</h3>
+                            <p>Data preprocessing improves the data quality by cleaning, normalizing, transforming and extracting relevant feature from raw data. Our raw data came in with columns with data type objects, the machine model we have built can
+                                only take in columns with numbers, we have formatted the dataframe “features” into integer columns, dropped unwanted columns, remove null/missing values.</p>
+                            <p>Feature engineering is the process of selecting, manipulating, and transforming raw data into features that can be used in supervised learning. In order to make our model work well, we have discussed which features should be
+                                included and which one should be dropped.</p>
+                            <p>To get more truer predictions the features should be picked carefully , However in our dataset unemployment will be more where there are more population, so we decided to add education information as a feature as well, then
+                                we used race population information , education information to predict unemployed count for a choosen county.</p>
+                            <p>If the model does not perform well on the unseen dataset(test) ,but gives a high score on the seen dataset , the model is overfitting, our test score is 93% ,so our random regressor model is performing well and not overfitting.</p>
+                            <p>
+                                <a target="_blank" rel="noopener noreferrer" href="https://www.github.com/reachme1212/final_project/blob/main/images/ml_r2.PNG"><img src="https://www.github.com/reachme1212/final_project/raw/main/images/ml_r2.PNG" alt="Regressor" style="max-width: 100%;"></a>
+                            </p>
                         </div>
+                    </div>
 
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h3><br><br>Dashboard</h3>
-                                <p>We are building a google slides, to create an initial dashboard , for our final visual presentation we have decided to use tableau dashboards and a webpage that will show the interactive element of our charts , analysis and prediction by our machine model.</p>
-                                <p><a href="https://public.tableau.com/app/profile/sangeetha.venu.gopalan/viz/Final_project_stateoverview_db/State_overview_db?publish=yes" rel="nofollow">State DB </a></p>
-                                <p><a href="https://public.tableau.com/app/profile/sangeetha.venu.gopalan/viz/Final_project_county_db/county_overview_db?publish=yes" rel="nofollow">County DB </a></p>
-                                <p><a href="https://public.tableau.com/app/profile/sangeetha.venu.gopalan/viz/Final_project_top_unemp_db/state_county_top_unemployed_db?publish=yes" rel="nofollow">Top DB </a></p>
-                                <p><a href="https://public.tableau.com/app/profile/sangeetha.venu.gopalan/viz/Final_project_Race_map/race_pop?publish=yes" rel="nofollow">Race1 DB </a></p>
-                                <p><a href="https://public.tableau.com/app/profile/kenneth.paulson/viz/Demograpic_County/Dashboard1" rel="nofollow">population DB </a></p>
-                                <p><a href="https://public.tableau.com/app/profile/kenneth.paulson/viz/PercentagePopulationbyDemographic/Dashboard2" rel="nofollow">Race2 DB </a></p>
-                                <p><a href="https://public.tableau.com/app/profile/sangeetha.venu.gopalan/viz/Final_project_edu_state/education_unemp?publish=yes" rel="nofollow">Education_state DB </a></p>
-                                <p><a href="https://public.tableau.com/app/profile/sangeetha.venu.gopalan/viz/Final_project_edu_county/education_state_county?publish=yes" rel="nofollow">Education_county DB</a></p>
-                            </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3><br><br>DataBase</h3>
+                            <p>We have set up the database that will connect to AWS with our data. We have created tables in postgres to load the dataframes, we used join using SQL<br> and create a new combined data that has the geoid that can be used to
+                                train and test the machine model.</p>
+                            <img src="https://github.com/reachme1212/final_project/raw/main/images/project_ERD_DB.PNG" alt="projected_erd" style="max-width: 100%;" alt="projected_erd" style="max-width: 100%;">
                         </div>
-                        <!--
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3><br><br>Dashboard</h3>
+                            <p>We are building a google slides, to create an initial dashboard , for our final visual presentation we have decided to use tableau dashboards and a webpage that will show the interactive element of our charts , analysis and
+                                prediction by our machine model.</p>
+                            <p><a href="https://public.tableau.com/app/profile/sangeetha.venu.gopalan/viz/Final_project_stateoverview_db/State_overview_db?publish=yes" rel="nofollow">State DB </a></p>
+                            <p><a href="https://public.tableau.com/app/profile/sangeetha.venu.gopalan/viz/Final_project_county_db/county_overview_db?publish=yes" rel="nofollow">County DB </a></p>
+                            <p><a href="https://public.tableau.com/app/profile/sangeetha.venu.gopalan/viz/Final_project_top_unemp_db/state_county_top_unemployed_db?publish=yes" rel="nofollow">Top DB </a></p>
+                            <p><a href="https://public.tableau.com/app/profile/sangeetha.venu.gopalan/viz/Final_project_Race_map/race_pop?publish=yes" rel="nofollow">Race1 DB </a></p>
+                            <p><a href="https://public.tableau.com/app/profile/kenneth.paulson/viz/Demograpic_County/Dashboard1" rel="nofollow">population DB </a></p>
+                            <p><a href="https://public.tableau.com/app/profile/kenneth.paulson/viz/PercentagePopulationbyDemographic/Dashboard2" rel="nofollow">Race2 DB </a></p>
+                            <p><a href="https://public.tableau.com/app/profile/sangeetha.venu.gopalan/viz/Final_project_edu_state/education_unemp?publish=yes" rel="nofollow">Education_state DB </a></p>
+                            <p><a href="https://public.tableau.com/app/profile/sangeetha.venu.gopalan/viz/Final_project_edu_county/education_state_county?publish=yes" rel="nofollow">Education_county DB</a></p>
+                        </div>
+                    </div>
+                    <!--
                         <div class="row">
                             <div class="col-md-12">
                                 <p><h2>ETL Process</h2></p>
@@ -161,48 +182,48 @@
                         </div>
                         -->
 
-  
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h3><br><br>Results</h3>
-                                <p>Our model predicts countywise unemployement total using the features in our dataset , model predicts with 93 to 95% accuracy (we have 2 sets of X), we decided to host our webpage in heroku cloud application, please click on the link below to see that in action.</p>        
-                                <p><a href="https://uofa-project.herokuapp.com" rel="nofollow">heroku_link</a></p>
-                                <p><a href="https://docs.google.com/presentation/d/1vhAENddHRfgTb4mEkrhFVYieG4LQkvR6Cyb3pK8beMo/edit#slide=id.p" rel="nofollow">google slides</a></p>
-                            </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3><br><br>Results</h3>
+                            <p>Our model predicts countywise unemployement total using the features in our dataset , model predicts with 93 to 95% accuracy (we have 2 sets of X), we decided to host our webpage in heroku cloud application, please click on
+                                the link below to see that in action.</p>
+                            <p><a href="https://uofa-project.herokuapp.com" rel="nofollow">heroku_link</a></p>
+                            <p><a href="https://docs.google.com/presentation/d/1vhAENddHRfgTb4mEkrhFVYieG4LQkvR6Cyb3pK8beMo/edit#slide=id.p" rel="nofollow">google slides</a></p>
                         </div>
-
-                        <div class="row">
-                            <div class="col-md-12">    
-                                <h3><br><br>Recommendation for future analysis</h3>  
-                                <p>We could improve this analysis by looking deep into the reasons for the high unemployement rates in those counties and exploring data to support that. If we had more time we were planning to do a race based unemployement analysis , to do that we need additional race base data that was not readily available.</p>  
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h3><br><br>Technologies and tools used for this analysis</h3>
-                                <UL>
-                                    <LI>Languages : Python, pandas, html, Javascript, css
-                                    <LI>Tools : Tableau, Heroku, and Google slides.
-                                    <LI>Database: PostGres DB, AWS RDS, SQLAlchemy, psycopg2
-                                    </UL>                           
-                                
-                                <!--   [google slides](https://docs.google.com/presentation/d/1vhAENddHRfgTb4mEkrhFVYieG4LQkvR6Cyb3pK8beMo/edit#slide=id.p)-->
-                            </div>
-                        </div>
-
-
-                       
                     </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3><br><br>Recommendation for future analysis</h3>
+                            <p>We could improve this analysis by looking deep into the reasons for the high unemployement rates in those counties and exploring data to support that. If we had more time we were planning to do a race based unemployement analysis
+                                , to do that we need additional race base data that was not readily available.</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3><br><br>Technologies and tools used for this analysis</h3>
+                            <UL>
+                                <LI>Languages : Python, pandas, html, Javascript, css
+                                    <LI>Tools : Tableau, Heroku, and Google slides.
+                                        <LI>Database: PostGres DB, AWS RDS, SQLAlchemy, psycopg2
+                            </UL>
+
+                            <!--   [google slides](https://docs.google.com/presentation/d/1vhAENddHRfgTb4mEkrhFVYieG4LQkvR6Cyb3pK8beMo/edit#slide=id.p)-->
+                        </div>
+                    </div>
+
+
+
                 </div>
             </div>
-
-
-
         </div>
-       
-    </body>
+
+
+
+    </div>
+
+</body>
+
 </html>
-
-
-    
