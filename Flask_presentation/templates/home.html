@@ -67,14 +67,11 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <h2>Analyzing concentration of Unemployment in US states and counties</h2>
-                            <p>In this final project our team has decided to analyze unemployment data in US states and counties, we wanted to see which states and counties has most unemployment rate. Question we hope to answer is 'which state/county has
-                                the most unemployed population', with the given features in the data-set can we predict the unemployment for those states and counties.</p>
+                            <h2>Analyzing Concentration of Unemployment in US states and counties</h2>
+                            <p>In this final project our team decided to analyze unemployment data for US states and their counties.  We wanted to see which states and counties has the most unemployment.  The question we hope to answer is 'which state/county has the most unemployed population'.  Using unemployment and demographic data to predict the unemployment for those states and counties.</p>
+                            <p>The BLS data shows that the nation's three largest cities LA, New York and Chicago have unemployment rates dramatically higher than the 2020 national average of 5.9 percent.   The reason we choose this topic is our curiosity about the “great resignation”, and what percentage of labor force is actually unemployed and not contributing to the country’s economy. </p>
+                            <p>Overall the outline of this analysis is getting employment ,demographic data and education data, clean ,merged before uploading the data into a database and used in a machine model, visualizations and interactive maps to see the results.</p>
 
-                            <p>The BLS data show that the nation's three largest cities LA, New York and Chicago have unemployment rates dramatically higher than the national average of 5.9 percent in last year. Reason we choose this topic is our curiosity
-                                about the “great resignation”, and what percentage of labor force is actually unemployed and not contributing to the country’s economy.</p>
-
-                            <p>Overall outline of this analysis is getting employment ,demographic data and education data, clean ,merge and upload the data into a database and create a machine model, visualizations and interactive maps to see the results.</p>
                         </div>
                     </div>
                     <div class="row justify-content-center">
@@ -100,15 +97,17 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <h3><br><br>Git-hub and team communication:</h3>
-                            <p>Team members are assigned specific roles each week in this project, we all work together on all parts of the project. we meet via zoom twice a week on Tuesdays and Thursdays (6 or 6.30pm Arizona time) to discuss ideas and responsibilities.
-                                We use slack every day to communicate ideas and changes made to repository.In our team to avoid git issues we work on our individual branch after we merge the branch to main we delete the branch from the repository.</p>
+                            <h3>Git-hub and Team Communication:</h3>
+                            <p>Team members are assigned specific roles each week in this project, we all work together on all parts of the project. we meet via zoom twice a week on Tuesdays and Thursdays (6 or 6.30pm Arizona time) to discuss ideas and responsibilities.  
+                                We use slack every day to communicate ideas and changes made to repository.  To avoid git issues, we work on our individual branch’s then merge the branch to main before deleting the branch from the repository. </p>
 
                             <h3>Data-exploration and analysis:</h3>
-                            <p>Data exploration is the first step of data analysis used to explore and visualize data to uncover insights from the start or identify areas or patterns to dig into. After cleaning and uploading the data in to our database,
-                                we have spent some time to explore the data , to decide whether there is any trend in the data ,what analysis will answer our question better , what story we can tell with the dataset.</p>
-                            <p>Using pandas's matplotlib we analyzed the dataset, we started to see a trend that counties with most population also have more unemployment rates.Our data exploration and analysis are in the charts folder above.</p>
-                            <p>Then we wanted to see if education levels impact higher unemployment rates , we have downloaded countywise education data, and built a tableau chart to see relationship between population, education and unemployment.</p>
+                            <p>Data exploration is the first step of data analysis used to explore and visualize data to uncover insights from the start or identify areas and patterns to investigate.  
+                                After cleaning and uploading the data into our database, time is spent exploring data and noticing trends in the data.  Trying to identify what data and analysis will answer 
+                                our question best and what story can be told from the dataset.  Using pandas and matplotlib to analyze the dataset, we started to see trends that counties with most population 
+                                also have more unemployment.  Then we wanted to see if education levels can influence unemployment rates.  Education data was added to the visualization and machine 
+                                learning model to help identify additional relationship between population, education, and unemployment.   Finally, visualization of our data can be found on the analysis page.  
+                            </p>
                             <p>
                                 <a target="_blank" rel="noopener noreferrer" href="https://www.github.com/reachme1212/final_project/blob/main/images/final_data.PNG"><img src="https://www.github.com/reachme1212/final_project/raw/main/images/final_data.PNG" alt="data_frame" style="max-width: 100%;"></a>
                             </p>
@@ -134,13 +133,14 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h3><br><br>Machine Learning:</h3>
-                            <p>Data preprocessing improves the data quality by cleaning, normalizing, transforming and extracting relevant feature from raw data. Our raw data came in with columns with data type objects, the machine model we have built can
-                                only take in columns with numbers, we have formatted the dataframe “features” into integer columns, dropped unwanted columns, remove null/missing values.</p>
-                            <p>Feature engineering is the process of selecting, manipulating, and transforming raw data into features that can be used in supervised learning. In order to make our model work well, we have discussed which features should be
-                                included and which one should be dropped.</p>
-                            <p>To get more truer predictions the features should be picked carefully , However in our dataset unemployment will be more where there are more population, so we decided to add education information as a feature as well, then
-                                we used race population information , education information to predict unemployed count for a choosen county.</p>
-                            <p>If the model does not perform well on the unseen dataset(test) ,but gives a high score on the seen dataset , the model is overfitting, our test score is 93% ,so our random regressor model is performing well and not overfitting.</p>
+                            <p> Data preprocessing improves the data quality by cleaning, normalizing, transforming, and extracting relevant feature from raw data.  
+                                Our raw data came in with columns with data type objects, the machine model we have built can only take in columns with numbers, we have 
+                                formatted the dataframe “features” into integer columns, dropped unwanted columns, remove null/missing values.  Feature engineering is the process 
+                                of selecting, manipulating, and transforming raw data into features that can be used in supervised learning. To make our model work well, we have 
+                                discussed which features should be included and which one should be dropped.  For accurate predictions the features should be picked carefully, however 
+                                in our dataset unemployment will be more where there is higher population, so we decided to add education information as a feature as well.  With a 
+                                test score of 93%, so our random regressor model is performing well and not overfitting.
+                            </p>
                             <p>
                                 <a target="_blank" rel="noopener noreferrer" href="https://www.github.com/reachme1212/final_project/blob/main/images/ml_r2.PNG"><img src="https://www.github.com/reachme1212/final_project/raw/main/images/ml_r2.PNG" alt="Regressor" style="max-width: 100%;"></a>
                             </p>
@@ -149,9 +149,10 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <h3><br><br>DataBase</h3>
-                            <p>We have set up the database that will connect to AWS with our data. We have created tables in postgres to load the dataframes, we used join using SQL<br> and create a new combined data that has the geoid that can be used to
-                                train and test the machine model.</p>
+                            <h3>DataBase</h3>
+                            <p>We have set up the database that will connect to AWS with our data. We have created tables in postgres to load the dataframes, we used join using SQL and created
+                                a new combined data that has the geoid that can be used to train and test the machine model.
+                            </p>
                             <img src="https://github.com/reachme1212/final_project/raw/main/images/project_ERD_DB.PNG" alt="projected_erd" style="max-width: 100%;" alt="projected_erd" style="max-width: 100%;">
                         </div>
                     </div>
@@ -172,21 +173,11 @@
                             <p><a href="https://public.tableau.com/app/profile/sangeetha.venu.gopalan/viz/Final_project_edu_county/education_state_county?publish=yes" rel="nofollow">Education_county DB</a></p>
                         </div>
                     </div>
-                    <!--
-                        <div class="row">
-                            <div class="col-md-12">
-                                <p><h2>ETL Process</h2></p>
-                                <p>The team sourced the data from several different sites include the Federal US government.  The data was extracted in Excel or CSV files and then loaded into a jupyter notebook for cleaning and transofing the data using python and pandas.  Once the data was clean, each of the csv files were loaded to a cloud Postgres DB using Amazon Web Servies RDS.  
-                                    With the data no hosted in AWS, the machine learning model can connect and import the data before processes.  </p>
-                            </div>
-                        </div>
-                        -->
-
-
+                    
                     <div class="row">
                         <div class="col-md-12">
                             <h3><br><br>Results</h3>
-                            <p>Our model predicts countywise unemployement total using the features in our dataset , model predicts with 93 to 95% accuracy (we have 2 sets of X), we decided to host our webpage in heroku cloud application, please click on
+                            <p>Our model predicts county unemployement total using the features in our dataset.  The model predicts with 93% to 95% accuracy (we have 2 sets of X), we decided to host our webpage in heroku cloud application, please click on
                                 the link below to see that in action.</p>
                             <p><a href="https://uofa-project.herokuapp.com" rel="nofollow">heroku_link</a></p>
                             <p><a href="https://docs.google.com/presentation/d/1vhAENddHRfgTb4mEkrhFVYieG4LQkvR6Cyb3pK8beMo/edit#slide=id.p" rel="nofollow">google slides</a></p>
@@ -197,7 +188,8 @@
                         <div class="col-md-12">
                             <h3><br><br>Recommendation for future analysis</h3>
                             <p>We could improve this analysis by looking deep into the reasons for the high unemployement rates in those counties and exploring data to support that. If we had more time we were planning to do a race based unemployement analysis
-                                , to do that we need additional race base data that was not readily available.</p>
+                                , to do that we need additional race base data that was not readily available.
+                            </p>
                         </div>
                     </div>
 
@@ -210,8 +202,7 @@
                                         <LI>Database: PostGres DB, AWS RDS, SQLAlchemy, psycopg2
                             </UL>
 
-                            <!--   [google slides](https://docs.google.com/presentation/d/1vhAENddHRfgTb4mEkrhFVYieG4LQkvR6Cyb3pK8beMo/edit#slide=id.p)-->
-                        </div>
+                            </div>
                     </div>
 
 
